@@ -29,9 +29,9 @@ namespace T4Superheroes
             list = Superheroe.GetSamples();
             InitializeComponent();
             navStr = listIndex + 1 + "/" + list.Count();
+            currentSlideIndicatortextBlock.Text = navStr;
             listIndex = 0;
-            currentHeroe = list[listIndex];
-            mainDockPanel.DataContext = currentHeroe;
+            mainDockPanel.DataContext = list[listIndex];
         }
 
         private void prevArrowImage_MouseDown(object sender, MouseButtonEventArgs e)
@@ -49,17 +49,14 @@ namespace T4Superheroes
             int listsize = list.Count();
             int i = listIndex;
             i += op;
+
             if (i < 0)
                 i = 0;
             else if (i > list.Count() - 1)
                 i = list.Count() - 1;
 
             listIndex = i;
-            currentHeroe.Nombre = list[listIndex].Nombre;
-            currentHeroe.Imagen = list[listIndex].Imagen;
-            currentHeroe.Xmen = list[listIndex].Xmen;
-            currentHeroe.Heroe = list[listIndex].Heroe;
-            currentHeroe.Vengador = list[listIndex].Vengador;
+            mainDockPanel.DataContext = list[listIndex];
             navStr = listIndex + 1 + "/" + list.Count();
             currentSlideIndicatortextBlock.Text = navStr;
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:T4Superheroes"
         mc:Ignorable="d"
-        Title="Super Heroes" Height="450" Width="800">
+        Title="Super Heroes" Height="450" Width="800" Icon="assets/shield.ico">
     <Window.Resources>
 
 
@@ -27,7 +27,7 @@
         <StackPanel DockPanel.Dock="Bottom">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Image Source="assets/arrow.png" Width="25" x:Name="prevArrowImage" MouseDown="prevArrowImage_MouseDown"></Image>
-                <TextBlock x:Name="currentSlideIndicatortextBlock" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Rockwell Extra Bold">0/0</TextBlock>
+                <TextBlock x:Name="currentSlideIndicatortextBlock" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Rockwell Extra Bold"></TextBlock>
                 <Image Source="assets/arrow.png" Width="25" RenderTransformOrigin="0.5,0.5" x:Name="nextArrowImage" MouseDown="NextArrowImage_MouseDown">
                     <Image.RenderTransform>
                         <TransformGroup>
@@ -40,6 +40,6 @@
                 </Image>
             </StackPanel>
         </StackPanel>
-        <Image x:Name="heroeImage" Source="{Binding Path=Imagen}" Stretch="UniformToFill"></Image>
+        <Image x:Name="heroeImage" Source="{Binding Path=Imagen}" Stretch="UniformToFill" Margin="10"></Image>
     </DockPanel>
 </Window>
