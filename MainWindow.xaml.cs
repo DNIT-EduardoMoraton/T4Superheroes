@@ -20,46 +20,23 @@ namespace T4Superheroes
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Superheroe> list;
-        int listIndex;
-        Superheroe currentHeroe;
-        String navStr;
+        MainWindowVM vm;
         public MainWindow()
         {
-            list = Superheroe.GetSamples();
-            InitializeComponent();
-            navStr = listIndex + 1 + "/" + list.Count();
-            currentSlideIndicatortextBlock.Text = navStr;
-            listIndex = 0;
-            mainDockPanel.DataContext = list[listIndex];
+            vm = new MainWindowVM();
+            this.DataContext = vm;
         }
 
         private void prevArrowImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            manageList(-1);
+            vm.manageList(-1);
         }
 
         private void NextArrowImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            manageList(1);
+            vm.manageList(1);
         }
 
-        private void manageList(int op)
-        {
-            int listsize = list.Count();
-            int i = listIndex;
-            i += op;
 
-            if (i < 0)
-                i = 0;
-            else if (i > list.Count() - 1)
-                i = list.Count() - 1;
-
-            listIndex = i;
-            mainDockPanel.DataContext = list[listIndex];
-            navStr = listIndex + 1 + "/" + list.Count();
-            currentSlideIndicatortextBlock.Text = navStr;
-
-        }
     }
 }
